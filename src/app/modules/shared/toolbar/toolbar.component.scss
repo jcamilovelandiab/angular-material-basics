@@ -1,0 +1,14 @@
+.app-toolbar {
+    .bank-logo {
+        height: 50px;
+        width: 70px;
+        padding: 5px;
+        margin-left: 10px;
+    }
+    .toolbar-spacer {
+        flex: 1 1 auto;
+    }
+    .right-actions {
+        margin-right: 20px;
+    }
+}

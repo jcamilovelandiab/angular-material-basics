@@ -1,0 +1,22 @@
+.home-page {
+    background-image: url('../../../../../assets//images/home-banner.jpg');
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-size: cover; 
+    
+    height: 100vh;
+
+    .row {
+        width: 100%;
+        display: flex;
+    }
+    .col-8 {
+        width: 80%;
+    }
+    .col-4 {
+        width: 40%;
+    }
+    app-signin {
+        height: 100%;
+    }
+}

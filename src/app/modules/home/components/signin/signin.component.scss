@@ -1,0 +1,36 @@
+.signin-form-container {
+    height: 100%;
+    padding: 10px;
+
+    .signin-card {
+        height: 100%;
+        width: 100%;
+
+        .card-header {
+            .card-header-title {
+                margin-top: 20px;
+                margin-bottom: 20px;
+                margin-right: auto;
+            }
+        }
+        .signin-form {
+            display: flex;
+            flex-direction: column;
+        }
+        .form-field {
+            mat-error {
+                margin-bottom: 10px;
+            }
+        }
+        .hide-password {
+            cursor: pointer;
+        }
+        .spinner {
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .submit-button {
+            margin-top: 15px;
+        }
+    }
+}

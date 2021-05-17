@@ -1,0 +1,64 @@
+<div class="signin-form-container basic-container">
+  <mat-card class="signin-card">
+    <mat-card-header class="card-header">
+        <h2 class="card-header-title">Iniciar Sesión</h2>
+    </mat-card-header>
+    <mat-card-content>
+        <form [formGroup]="signInForm" class="signin-form" (submit)="submit()">
+            <mat-form-field
+                class="form-field"
+                appearance="outline"
+            >
+                <mat-label>Enter your email</mat-label>
+                <input
+                    matInput
+                    placeholder="email@example.com"
+                    formControlName="email"
+                    required
+                >
+                <mat-error *ngIf="signInForm.controls.email.touched && signInForm.controls.email.invalid">
+                    <span *ngIf="signInForm.controls.email.errors.required">This field is required.</span>
+                    <span *ngIf="signInForm.controls.email.errors.pattern">The email is invalid.</span>
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field
+                class="form-field"
+                appearance="outline"
+            >
+                <mat-label>Enter your password</mat-label>
+                <input
+                    matInput
+                    [type]="hide ? 'password' : 'text'"
+                    formControlName="password"
+                    required
+                >
+                <button
+                    class="hide-password"
+                    mat-icon-button
+                    matSuffix
+                    (click)="hide = !hide"
+                    [attr.aria-label]="'Hide password'"
+                    [attr.aria-pressed]="hide"
+                >
+                    <mat-icon>{{ hide ? 'visibility_off' : 'visibility' }}</mat-icon>
+                </button>
+                <mat-error *ngIf="signInForm.controls.password.touched && signInForm.controls.password.invalid">
+                    <span *ngIf="signInForm.controls.password.errors.required">This field is required.</span>
+                </mat-error>
+            </mat-form-field>
+            <button
+                class="submit-button"
+                mat-raised-button
+                type="submit"
+                color="primary"
+                [disabled]="!signInForm.valid ? '' : null"
+            >
+                Sign In
+            </button>
+        </form>
+    </mat-card-content>
+    <mat-card-footer>
+        <mat-spinner diameter="40" class="spinner" *ngIf="loading"></mat-spinner>
+    </mat-card-footer>
+  </mat-card>
+</div>
