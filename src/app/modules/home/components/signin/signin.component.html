@@ -32,7 +32,7 @@
                     formControlName="password"
                     required
                 >
-                <button
+                <div
                     class="hide-password"
                     mat-icon-button
                     matSuffix
@@ -41,7 +41,7 @@
                     [attr.aria-pressed]="hide"
                 >
                     <mat-icon>{{ hide ? 'visibility_off' : 'visibility' }}</mat-icon>
-                </button>
+                </div>
                 <mat-error *ngIf="signInForm.controls.password.touched && signInForm.controls.password.invalid">
                     <span *ngIf="signInForm.controls.password.errors.required">This field is required.</span>
                 </mat-error>

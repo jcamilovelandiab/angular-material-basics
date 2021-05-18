@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-signin',
@@ -16,7 +17,8 @@ export class SigninComponent implements OnInit {
   loading: Boolean = false;
 
   constructor(
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private matSnackBar: MatSnackBar
   ) {  }
 
   ngOnInit() {
@@ -32,9 +34,31 @@ export class SigninComponent implements OnInit {
     }
     console.log(this.signInForm.value);
     this.loading = true;
+    this.openSnackBar();
     setTimeout(()=> {
       this.loading = false;
     }, 5000 );
   }
 
+  openSnackBar(){
+    this.matSnackBar.openFromComponent(SnackbarComponent, {
+      duration: 5000
+    });
+  }
+
 }
+
+@Component({
+  selector: 'app-snackbar',
+  template: `
+    <div class='root-snackbar'>
+      You logged in!
+    </div>
+  `,
+  styles: [`
+    .root-snackbar {
+      color: hotpink;
+    }
+  `]
+})
+export class SnackbarComponent {}
